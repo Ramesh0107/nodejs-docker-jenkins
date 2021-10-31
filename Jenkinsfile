@@ -11,7 +11,7 @@ node {
     }
     stage('Build'){
       if(env.BRANCH_NAME == 'master'){
-        sh 'docker build -t my-app:latest --no-cache .'
+        sh 'docker build -t my-app --no-cache .'
         //sh 'docker tag app localhost:5000/app'
         //sh 'docker push localhost:5000/app'
         
@@ -21,7 +21,7 @@ node {
       if(env.BRANCH_NAME == 'master'){
         //sh 'docker pull localhost:5000/app'
         //sh 'docker run -d -p 8090:8090 --name app localhost:5000/app:latest
-        sh 'docker run -d -p 8090:8090 --name app my-app:latest
+        sh 'docker run -d -p 8090:8090 --name app my-app'
         
         //sh 'docker rmi -f app localhost:5000/app'
       }
